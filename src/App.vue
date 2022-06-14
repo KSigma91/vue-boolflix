@@ -5,17 +5,20 @@
     </header>
 
     <main>
+      <MainContent/>
     </main>
   </div>
 </template>
 
 <script>
-import NavbarHeader from "./components/NavbarHeader.vue";
+import NavbarHeader from "./components/NavbarHeader.vue"
+import MainContent from "./components/MainContent.vue"
 
 export default {
   name: 'App',
   components: {
-    NavbarHeader
+    NavbarHeader,
+    MainContent
 }
 }
 </script>

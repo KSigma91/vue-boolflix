@@ -1,6 +1,6 @@
 <template>
    <input type="text" placeholder="cerca"
-   v-model="mySearch" @keyup.enter="$emit('inputSearch', mySearch)"
+   v-model="myText" @keyup.enter="$emit('inputSearch', myText)"
    >
    <!-- <button>cerca</button> -->
 </template>
@@ -10,7 +10,7 @@ export default {
     name: 'SearchFunction',
     data() {
         return {
-            mySearch: "",
+            myText: "",
         }
     }
 }
