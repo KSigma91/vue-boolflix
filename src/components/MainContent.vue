@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <MyCard v-for="(item, index) in listArray" :key="index"
+        <MyCard v-for="(item, index) in filteredSearch" :key="index"
         :insertCard="item"/>
     </div>
 </template>
@@ -40,6 +40,15 @@ export default {
         } ,
         getList(list) {
             this.userInput = list;
+        }
+    },
+    computed: {
+        filteredSearch(listElement) {
+            if(this.userInput === "") {
+                return this.listArray;
+            } else {
+                return listElement.results.toLowerCase().includes(this.userInput.toLowerCase());
+            }
         }
     }
 }
