@@ -3,7 +3,7 @@
         <h2>{{ card.title }}</h2>
         <h2>{{ card.original_title }}</h2>
         <h2>{{ card.original_language }}</h2>
-        <h2>{{ card.vote_average }}</h2>
+        <h2>{{ card.average_vote }}</h2>
     </div>
 </template>
 
@@ -11,8 +11,10 @@
 export default {
     name: 'MainContent',
     props: {
-        title: String,
-        originalTitle: String,
+        // myTitle: String,
+        // originalTitle: String, 
+        // originalLanguage: String,
+        // voteAverage: String,
         card: Object
     },
 }

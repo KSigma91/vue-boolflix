@@ -1,7 +1,8 @@
 <template>
     <header>
-        <div v-for="(element, index) in filteredSearch"
-        :key="index" :title="element.title" :originalTitle="element.original_title" :card="element.results"></div>
+        <div v-for="(element, index) in listArray"
+        :key="index" :myTitle="element.title" :originalTitle="element.original_title" :originalLanguage="element.original_language" :voteAverage="element.vote_average" :card="element"
+        @inputSearch="getContent"></div>
         <SearchFunction @inputSearch="getResult"/>
     </header>
 </template>
@@ -17,13 +18,13 @@ export default {
     }, 
     data() {
         return {
-            apiUrl: "https://api.themoviedb.org/3/search/top_rated?api_key=95ab071c54b74df27fd2f8b34c0fb2ab",
+            apiUrl: "https://api.themoviedb.org/3/search/movie?api_key=95ab071c54b74df27fd2f8b34c0fb2ab&query=Django+Unchained",
             listArray: [],
             userText: ""
         }
     },
     created() {
-        this.listArray = this.apiUrl;
+        this.getContent();
     },
     methods: {
         getContent() {
@@ -45,8 +46,8 @@ export default {
             if(this.userText === "") {
                 return this.listArray;
             } else {
-                return this.listArray.filter(item => {
-                    return item.results.toLowerCase().includes(this.userText.toLowerCase());
+                return this.listArray.filter(listElement => {
+                    return listElement.toLowerCase().includes(this.userText.toLowerCase());
                 });
             }
         }

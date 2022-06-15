@@ -1,8 +1,10 @@
 <template>
-   <input type="text" placeholder="cerca"
-   v-model="myText" @keyup.enter="$emit('inputSearch', myText)"
-   >
-   <!-- <button>cerca</button> -->
+    <div id="search">
+        <input type="text" placeholder="Scrivi qui..."
+        v-model="myText"
+        >
+        <button @click="$emit('inputSearch', myText)">cerca</button>
+    </div>
 </template>
 
 <script>
@@ -12,13 +14,22 @@ export default {
         return {
             myText: "",
         }
-    }
+    },
 }
 </script>
 
 <style scoped lang="scss">
-    input {
-        padding: 5px;
-        outline: 0;
+    #search {
+        input {
+            border-width: 1px 0 1px 1px;
+            padding: 5px;
+            outline: 0;
+        }
+
+        button {
+            border-width: 1px 1px 1px 1px;
+            padding: 5px;
+            font-size: 13px;
+        }
     }
 </style>

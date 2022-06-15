@@ -1,12 +1,8 @@
 <template>
-  <div id="app">
-    <header>
+  <div id="app">   
       <NavbarHeader/>
-    </header>
 
-    <main>
       <MainContent/>
-    </main>
   </div>
 </template>
 
