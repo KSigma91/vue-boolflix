@@ -1,22 +1,47 @@
 <template>
     <div class="container">
-        <h2>{{ card.title }}</h2>
-        <h2>{{ card.original_title }}</h2>
-        <h2>{{ card.original_language }}</h2>
-        <h2>{{ card.average_vote }}</h2>
+        <MyCard v-for="(item, index) in listArray" :key="index"
+        :insertCard="item"/>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+import MyCard from './MyCard.vue'
+
+
 export default {
-    name: 'MainContent',
-    props: {
-        // myTitle: String,
-        // originalTitle: String, 
-        // originalLanguage: String,
-        // voteAverage: String,
-        card: Object
+    name: "MainContent",
+    components: {
+       MyCard
     },
+    props: {
+        msg: String
+    },
+    data() {
+        return {
+            apiUrl: "https://api.themoviedb.org/3/search/movie?api_key=95ab071c54b74df27fd2f8b34c0fb2ab&query=Django+Unchained",
+            listArray: [],
+            userInput: ""
+        };
+    },
+    created() {
+        this.getElement()
+    },
+    methods: {
+        getElement() {
+            axios.get(this.apiUrl).then((element) => {
+                this.listArray = element.data.results;
+                console.log(element);
+            })
+            .catch((error) => {
+                console.log("Errore", error);
+            })
+        } ,
+        getList(list) {
+            this.userInput = list;
+        }
+    }
 }
 </script>
 
