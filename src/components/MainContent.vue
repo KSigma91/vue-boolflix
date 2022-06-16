@@ -3,7 +3,7 @@
         <NavbarHeader @myButton="receivedText"/>
         <MyCard v-for="(item, index) in listArray" :key="index"
         :insertCard="item"/>
-        <h3>{{ msg }}</h3>
+        <!-- <h3>{{ msg }}</h3> -->
     </div>
 </template>
 
