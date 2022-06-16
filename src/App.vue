@@ -1,29 +1,20 @@
 <template>
-  <div id="app">   
-    <NavbarHeader @myButton="receivedText"/>
+  <div id="app">
     <MainContent :msg="inputText"/>
   </div>
 </template>
 
 <script>
-import NavbarHeader from "./components/NavbarHeader.vue"
 import MainContent from "./components/MainContent.vue"
-
 
 export default {
   name: 'App',
   components: {
-    NavbarHeader,
     MainContent
   },
   data() {
     return {
       inputText: ""
-    }
-  },
-  methods: {
-    receivedText(searchText) {
-      this.inputText = searchText;
     }
   }
 }

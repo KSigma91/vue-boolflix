@@ -13,8 +13,7 @@ export default {
         return {
            userText: ""
         }
-    },
-    
+    },   
 }
 </script>
 
